@@ -4,11 +4,11 @@ WORKDIR  /usr/src/app
 COPY . .
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update -y && apt-get upgrade -y
-RUN apt install -y git
-RUN apt install curl -y
 FROM adoptopenjdk/openjdk16:latest
 RUN apt-get update
 RUN apt-get install software-properties-common -y
+RUN apt install -y git
+RUN apt install curl -y
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update
 RUN apt-get install python3.8
